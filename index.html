@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js" defer></script>
+    <title>Strong Password Generator</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="titleDesign">
+            <h1 class="title">Strong Password Generator</h1>
+        </div>
+        <div class="resultBar">
+            <div class="passwordBox" id="passwordShow">Password</div>
+            <div id="copyToClipBoard">
+                <button type="button" class="pui-btn pui-btn--default pui-btn--flat pui-btn--icon-only">
+                    <div class="icon icon-middle"><svg height="24" width="24" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg" class="icon-copy">
+                            <path
+                                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z">
+                            </path>
+                        </svg></div>
+                </button>
+            </div>
+        </div>
+
+        <form class="form" id="formPassword">
+            <label for="charLengthRange">Length</label>
+            <div class="length_container">
+                <input type="range" min="1" max="32" value="12" id="charLengthRange">
+                <input type="number" min="1" max="32" value="12" id="charLengthNumber" class="numInput">
+            </div>
+
+            <div class="setDesign">
+                <span>Options &#128295;</span>
+            </div>
+            <hr>
+            <div class="UppercaseDesign clm_design">
+                <label for="includeUppercase">Include Uppercase</label>
+                <input type="checkbox" id="includeUppercase" class="flt-right" />
+            </div>
+
+            <div class="LowercaseDesign clm_design">
+                <label for="includeLowercase">Include Lowercase</label>
+                <input type="checkbox" id="includeLowercase" class="flt-right" />
+            </div>
+
+            <div class="numberDesign clm_design">
+                <label for="includeNumbers">Include Numbers</label>
+                <input type="checkbox" id="includeNumbers" class="flt-right" />
+            </div>
+
+            <div class="symbolDesign clm_design">
+                <label for="includeSymbols">Include Symbols</label>
+                <input type="checkbox" id="includeSymbols" class="flt-right" />
+            </div>
+
+            <button type="submit" id="generatePassword" class="btnDesign btn"><span className="btnDesignSpan">Generate
+                    a Password &#128273;</span></button>
+        </form>
+    </div>
+</body>
+
+</html>
