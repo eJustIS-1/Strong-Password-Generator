@@ -1,3 +1,5 @@
+// Variables and Constants
+
 const charLengthRange = document.getElementById('charLengthRange');
 const charLengthNumber = document.getElementById('charLengthNumber')
 const formPassword = document.getElementById('formPassword')
@@ -22,6 +24,7 @@ const SYMBOL_CHAR_CODES = arrayFromLowToHigh(33, 47).concat(
 charLengthNumber.addEventListener('input', syncCharNumber)
 charLengthRange.addEventListener('input', syncCharNumber)
 
+//Displaying Password Event
 formPassword.addEventListener('submit', i => {
     i.preventDefault()
     const characterAmount = charLengthNumber.value
@@ -34,6 +37,7 @@ formPassword.addEventListener('submit', i => {
     passwordShow.innerText = password
 })
 
+// Copies the returned password by clicking the button and gives the alert of copied password
 copyToClipBoard.addEventListener("click", () => {
     const textarea = document.createElement("textarea");
     const passwordCopy = passwordShow.innerText
@@ -50,9 +54,11 @@ copyToClipBoard.addEventListener("click", () => {
 
 })
 
-
+// function to generate password 
 function generatePassword(characterAmount, includeUppercase, includeLowercase,
     includeNumbers, includeSymbols) {
+
+    //Variables
     let charCode = []
     if (includeLowercase) charCode = charCode.concat(LOWERCASE_CHAR_CODES)
     if (includeUppercase) charCode = charCode.concat(UPPERCASE_CHAR_CODES)
@@ -62,6 +68,7 @@ function generatePassword(characterAmount, includeUppercase, includeLowercase,
     let message = "Please Select an Option"
     if (charCode == 0) return message
 
+    // Loop to add characters to password randomly
     const passwordChars = []
     for (let i = 0; i < characterAmount; i++) {
         const charCodes = charCode[Math.floor(Math.random() * charCode.length)]
@@ -70,6 +77,7 @@ function generatePassword(characterAmount, includeUppercase, includeLowercase,
     return passwordChars.join('')
 }
 
+// Function to add from the lowest number to highest number (used to store symbols)
 function arrayFromLowToHigh(low, high) {
     const array = []
     for (let i = low; i <= high; i++) {
@@ -77,7 +85,7 @@ function arrayFromLowToHigh(low, high) {
     }
     return array
 }
-
+// function to syncronize lenght of number and range
 function syncCharNumber(i) {
     const value = i.target.value
     charLengthNumber.value = value
